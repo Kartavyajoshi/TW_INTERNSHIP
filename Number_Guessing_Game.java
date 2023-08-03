@@ -5,11 +5,13 @@ public class  Number_Guessing_Game{
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
+		
 		Scanner sc = new Scanner(System.in);
-
-		System.out.println(">>>>>>>>>>     Welcome to Guess Number Game     <<<<<<<<<<");
+		int result=0;
+      
+		System.out.println(">>>>>>>>>>     Welcome to Guess Number Game "+"  Game Id : "+ (int)(Math.random()*Math.pow(10,10))+"    <<<<<<<<<<");
 		System.out.println(">>>>>>>>>>     You will be Asked to guess a number to win the Game     <<<<<<<<<<");
-		System.out.println(">>>>>>>>>>     You have Maximum 5 Attemp Limit     <<<<<<<<<<");
+		System.out.println(">>>>>>>>>>     You have Maximum as per selected level Attemp Limit     <<<<<<<<<<");
 
 		int attempt = 0;
 		Random r1 = new Random();
@@ -22,10 +24,11 @@ public class  Number_Guessing_Game{
 		try {
 			choice = sc.nextInt();
 		} catch (Exception e) {
+			System.out.println("Default level selected");
 			choice = 1;
 		}
 
-		System.out.println(choice);
+		
 		switch (choice) {
 		case 1:
 			System.out.println("Easy selected.");
@@ -49,11 +52,11 @@ public class  Number_Guessing_Game{
 			attempt = 5; // set attempt for default level
 			break;
 		}
-
+        
 		
 		int i = r1.nextInt(choice);
-		while (true && attempt >= 0) {
-			System.out.println("Enter number between 1 to " + choice + ": ");
+		while (true && attempt >0) {
+			System.out.print("Enter number between 1 to " + choice + ": attempt left :  "+attempt +"  :");
 			try {
 
 				Scanner input = new Scanner(System.in);
@@ -61,6 +64,7 @@ public class  Number_Guessing_Game{
 
 				if (ans == i) {
 					System.out.println();
+					result=1;
 					System.out.println("**********     Oohhoo Your Number is Correct . you Win the game.!     **********");
 					break;
 				} else if (ans > i) {
@@ -82,11 +86,12 @@ public class  Number_Guessing_Game{
 		}
 		// Game over message...
 		// Here attempt <0 because of edge case//
-		if (attempt < 0) {
+		if (attempt <= 0  && result!=1) {
+			System.out.println("Right number is : "+i+"    Check your luck next time.");
 			System.out.println();
 			System.out.println("----------     Game Over...!     ----------");
 		}
-
+        
 	}
 
 }
