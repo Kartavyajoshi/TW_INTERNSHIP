@@ -190,7 +190,7 @@ public class ONLINE_VOTING_SYSTEM extends Application {
             v1.setAlignment(Pos.CENTER);
 
             //----Set scene----//
-            Scene sc2=new Scene(v1,400,4A00);
+            Scene sc2=new Scene(v1,400,400);
             Stage st=new Stage();
             st.setScene(sc2);
             st.show();
